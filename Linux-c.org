@@ -1,3 +1,82 @@
+* 头文件
+** ISO C标准定义的头文件
+
+   |--------------+--------------------------|
+   | 头文件       | 说明                     |
+   |--------------+--------------------------|
+   | <assert.h>   | 验证程序断言             |
+   | <complex.h>  | 复数算术运算             |
+   | <ctype.h>    | 字符分类和映射           |
+   | <errno.h>    | 出错码                   |
+   | <fenv.h>     | 浮点环境                 |
+   | <float.h>    | 浮点常量及特性           |
+   | <inttypes.h> | 整型格式变换             |
+   | <iso646.h>   | 赋值,关系及一元操作符宏  |
+   | <limits.h>   |                          |
+   | <locale.h>   | 本地化类别及相关定义     |
+   | <math.h>     | 数学函数,类型声明及常量  |
+   | <setjmp.h>   | 非局部GOTO               |
+   | <signal.h>   | 信号                     |
+   | <stdarg.h>   | 可变长参数列表           |
+   | <stdbool.h>  | 布尔类型和值             |
+   | <stddef.h>   | 标准定义                 |
+   | <stdint.h>   | 整型                     |
+   | <stdio.h>    | 标准I/O库                |
+   | <stdlib.h>   | 实用函数库               |
+   | <string.h>   | 字符串操作               |
+   | <tgmath.h>   | 通用类型数学宏           |
+   | <time.h>     | 时间和日期               |
+   | <wchar.h>    | 扩充的多字节和宽字符支持 |
+   | <wctype.h>   | 宽字符分类和映射支持     |
+   |--------------+--------------------------|
+
+** POSIX 标准定义的必需的头文件
+   |-----------------+--------------------|
+   | 头文件          | 说明               |
+   |-----------------+--------------------|
+   | <aio.h>         | 异步I/O            |
+   | <cpio.h>        | cpio归档值         |
+   | <dirent.h>      | 目录项             |
+   | <dlfnc.h>       | 动态链接           |
+   | <fcntl.h>       | 文件控制           |
+   | <fnmatch.h>     | 文件名匹配类型     |
+   | <glob.h>        | 路径名模式匹配类型 |
+   | <grp.h>         | 组文件             |
+   | <iconv.h>       | 代码集变换实用函数 |
+   | <langinfo.h>    | 语言信息常量       |
+   | <monetary.h>    | 货币类型和函数     |
+   | <netdb.h>       | 网络数据库操作     |
+   | <nl_types.h>    | 消息类             |
+   | <poll.h>        |                    |
+   | <pthread.h>     | 线程               |
+   | <pwd.h>         | 口令文件           |
+   | <regex.h>       | 正则表达式         |
+   | <sched.h>       | 执行调度           |
+   | <semaphore.h>   | 信号量             |
+   | <strings.h>     | 子符串操作         |
+   | <tar.h>         | tar归档值          |
+   | <termios.h>     | 终端I/O            |
+   | <unistd.h>      | 符号常量           |
+   | <utime.h>       | 文件时间           |
+   | <wordexp.h>     | 字扩展类型         |
+   |-----------------+--------------------|
+   | <arpa/inet.h>   | Internet定义       |
+   | <net/if.h>      | 套接字本地接口     |
+   | <netinet/in.h>  | Internet地址族     |
+   | <netinet/tcp.h> | 传输控制协议定义   |
+   |-----------------+--------------------|
+   | <sys/mman.h>    | 内存管理声明       |
+   | <sys/select.h>  | select函数         |
+   | <sys/socket.h>  | 套接字接口         |
+   | <sys/stat.h>    | 文件状态           |
+   | <sys/statvfs.h> | 文件系统信息       |
+   | <sys/times.h>   | 进程时间           |
+   | <sys/types.h>   | 基本系统数据类型   |
+   | <sys/un.h>      | UNIX域套接字定义   |
+   | <sys/utsname.h> | 系统名             |
+   | <sys/wait.h>    | 进程控制           |
+   |-----------------+--------------------|
+
 * 宏
 ** 字符串创建算符(#)
    宏定义:
@@ -21,4 +100,88 @@
      setjmp的返回值是调用longjmp时创给val的值,故一个setjmp可以同
      时对应多个longjmp,根据返回值来判断是那个位置的longjmp返回.
 
-     
+* Linux 系统信号
+  
+  |-------+-------------+------------|
+  | Value | Symbol      | Descrition |
+  |-------+-------------+------------|
+  |     1 | SIGHUP      |            |
+  |     2 | SIGINT      |            |
+  |     3 | SIGQUIT     |            |
+  |     4 | SIGILL      |            |
+  |     5 | SIGTRAP     |            |
+  |     6 | SIGABRT     |            |
+  |     7 | SIGBUS      |            |
+  |     8 | SIGFPE      |            |
+  |     9 | SIGKILL     |            |
+  |    10 | SIGUSR1     |            |
+  |    11 | SIGSEGV     |            |
+  |    12 | SIGUSR2     |            |
+  |    13 | SIGPIPE     |            |
+  |    14 | SIGALRM     |            |
+  |    15 | SIGTERM     |            |
+  |    16 | SIGSTKFLT   |            |
+  |    17 | SIGCHLD     |            |
+  |    18 | SIGCONT     |            |
+  |    19 | SIGSTOP     |            |
+  |    20 | SIGTSTP     |            |
+  |    21 | SIGTTIN     |            |
+  |    22 | SIGTTOU     |            |
+  |    23 | SIGURG      |            |
+  |    24 | SIGXCPU     |            |
+  |    25 | SIGXFSZ     |            |
+  |    26 | SIGVTALRM   |            |
+  |    27 | SIGPROF     |            |
+  |    28 | SIGWINCH    |            |
+  |    29 | SIGIO       |            |
+  |    30 | SIGPWR      |            |
+  |    31 | SIGSYS      |            |
+  |    34 | SIGRTMIN    |            |
+  |    35 | SIGRTMIN+1  |            |
+  |    36 | SIGRTMIN+2  |            |
+  |    37 | SIGRTMIN+3  |            |
+  |    38 | SIGRTMIN+4  |            |
+  |    39 | SIGRTMIN+5  |            |
+  |    40 | SIGRTMIN+6  |            |
+  |    41 | SIGRTMIN+7  |            |
+  |    42 | SIGRTMIN+8  |            |
+  |    43 | SIGRTMIN+9  |            |
+  |    44 | SIGRTMIN+10 |            |
+  |    45 | SIGRTMIN+11 |            |
+  |    46 | SIGRTMIN+12 |            |
+  |    47 | SIGRTMIN+13 |            |
+  |    48 | SIGRTMIN+14 |            |
+  |    49 | SIGRTMIN+15 |            |
+  |    50 | SIGRTMAX-14 |            |
+  |    51 | SIGRTMAX-13 |            |
+  |    52 | SIGRTMAX-12 |            |
+  |    53 | SIGRTMAX-11 |            |
+  |    54 | SIGRTMAX-10 |            |
+  |    55 | SIGRTMAX-9  |            |
+  |    56 | SIGRTMAX-8  |            |
+  |    57 | SIGRTMAX-7  |            |
+  |    58 | SIGRTMAX-6  |            |
+  |    59 | SIGRTMAX-5  |            |
+  |    60 | SIGRTMAX-4  |            |
+  |    61 | SIGRTMAX-3  |            |
+  |    62 | SIGRTMAX-2  |            |
+  |    63 | SIGRTMAX-1  |            |
+  |    64 | SIGRTMAX    |            |
+  |-------+-------------+------------|
+
+
+* 相关环境变量及配置文件
+  LD_LIBRARY_PATH
+  /etc/ld.so.conf & ldconfig
+  
+* 术语
+  
+  |-------+--------------------------------------------------+----------------------|
+  | 简称  | 全称                                             | 中文                 |
+  |-------+--------------------------------------------------+----------------------|
+  | ANSI  | American National Standards Institue             | 美国国家标准学会     |
+  | ISO   | International Organization for Standardization   | 国际标准化组织       |
+  | IEC   | International Electrotechnical Commission        | 国际电子技术委员会   |
+  | IEEE  | Institue of Electrical and Electronics Engineers | 电气和电子工程师学会 |
+  | POSIX | Portable Operating System Interface              | 可移植操作系统接口   |
+  |       |                                                  |                      |
