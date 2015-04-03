@@ -1,0 +1,24 @@
+* 宏
+** 字符串创建算符(#)
+   宏定义:
+   #define doit(name) dothis(#name, name)
+   
+   调用:
+   doit(COLOR_RED);
+   
+   C预处理器扩展为:
+   dothis("COLOR_RED", COLOR_RED)
+
+* 接口
+** setjmp/longjmp
+   goto跳转局限于一个涵数内,而setjmp/longjmp实现不同涵数间跳转.
+
+   - 说明
+     #include <setjmp.h>
+     int setjmp(jmp_buf env);
+     void longjmp(jmp_buf env, int val);
+
+     setjmp的返回值是调用longjmp时创给val的值,故一个setjmp可以同
+     时对应多个longjmp,根据返回值来判断是那个位置的longjmp返回.
+
+     
