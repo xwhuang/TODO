@@ -9,7 +9,8 @@
 #+LATEX_HEADER: \usepackage{color}
 #+LATEX_HEADER: \usepackage{enumitem}
 #+LATEX_HEADER: \usepackage{xeCJK}
-#+LATEX_HEADER: \setCJKmainfont[BoldFont=FandolHei:style=Regular]{FandolSong:style=Regular}\setCJKmainfont[BoldFont=FandolHei:style=Regular]{FandolSong:style=Regular}
+# #+LATEX_HEADER: \setCJKmainfont[BoldFont=FandolHei:style=Regular]{FandolSong:style=Regular}\setCJKmainfont[BoldFont=FandolHei:style=Regular]{FandolSong:style=Regular}
+#+LATEX_HEADER: \setCJKmainfont[BoldFont=Adobe Heiti Std,ItalicFont=Adobe Kaiti Std]{Adobe Song Std}
 #+LATEX: \newcommand{\fsfortytwo}{\fontsize{42pt}{\baselineskip}\selectfont}
 #+LATEX: \newcommand{\fsthirtysix}{\fontsize{36pt}{\baselineskip}\selectfont}
 #+LATEX: \newcommand{\fstwentyeight}{\fontsize{28pt}{\baselineskip}\selectfont}
@@ -179,6 +180,39 @@
     \indent
     \textbf{定理1(确界原理)}\verb*" "设$S$为非空数集,若数$S$有上界,则$S$必有上
     确界;若$S$有下界,则$S$必有下确界.\\
+    \indent
+    \textbf{证}\verb*" "假设$S$含有非负数,由于$S$有上界,故可找到非负整数$n$,使得\\
+    \indent
+    1) 对任何$x\in S$有$x < n+1$;\\
+    \indent
+    2) 存在$a_0 \in S$，使得$a_0 \geq n$.\\
+
+    \indent
+    对半开区间$[n,n+1)$作10等分，分点为 $n.1,n.2,\cdots ,n.9$ ,则存在
+    $0,1,2,\cdots ,9$中的一个数$n_1$，使得\\
+    \indent
+    1) 对任何$x\in S$有$x\leq n.n_1+\frac{1}{10}$;\\
+    \indent
+    2) 存在$a_1 \in S$，使得$a_1 \geq n.n_1$.\\
+
+    \indent
+    再对半开区间$[n.n_1,n.n_1+\frac{1}{10})$作10等分，则存在 $0,1,2,\cdots ,9$
+    中的一个数$n_2$，使得\\
+    \indent
+    1) 对任何$x\in S$有$x\leq n.n_{1}n_{2}+\frac{1}{10^2}$;\\
+    \indent
+    2) 存在$a_2 \in S$，使得$a_2 \geq n.n_{1}n_{2}$.\\
+
+    \indent
+    继续不断地10等分前一步骤中所得的半开区间，可知对任何$k=1,2,\cdots $,存在
+    $0,1,2,\cdots ,9$中的一个$n_k$，使得\\
+    \indent
+    1) 对任何$x\in S$有$x\leq n.n_{1}n_{2}\cdots n_{k}+\frac{1}{10^k}$;\\
+    \indent
+    2) 存在$a_k \in S$，使得$a_k \geq n.n_{1}n_{2}\cdots n_{k}$.\\
+    \indent
+    将上述步骤无限地进行下去，得到实数 $ \eta = n.n_{1}n_{2} \cdots n_{k} \cdots $,
+    以下证明$\eta =sup\verb*" "S$.为此只需证明：\\
     \indent
     
     #+end_latex
