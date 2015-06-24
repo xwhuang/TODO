@@ -1,0 +1,184 @@
+#+STARTUP: overview
+#+TITLE:
+#+OPTIONS: ^:{}
+#+OPTIONS: H:4 num:4 TeX:t LaTeX:t toc:nil
+#+LATEX_CLASS: article
+# Latex options: twoside,twocolumn,titlepage
+#+LaTeX_CLASS_OPTIONS: [a4paper,titlepage]
+#+LATEX_HEADER: \usepackage{fullpage}
+#+LATEX_HEADER: \usepackage{color}
+#+LATEX_HEADER: \usepackage{enumitem}
+#+LATEX_HEADER: \usepackage{xeCJK}
+#+LATEX_HEADER: \setCJKmainfont[BoldFont=FandolHei:style=Regular]{FandolSong:style=Regular}\setCJKmainfont[BoldFont=FandolHei:style=Regular]{FandolSong:style=Regular}
+#+LATEX: \newcommand{\fsfortytwo}{\fontsize{42pt}{\baselineskip}\selectfont}
+#+LATEX: \newcommand{\fsthirtysix}{\fontsize{36pt}{\baselineskip}\selectfont}
+#+LATEX: \newcommand{\fstwentyeight}{\fontsize{28pt}{\baselineskip}\selectfont}
+#+LATEX: \newcommand{\fstwenty}{\fontsize{20pt}{\baselineskip}\selectfont}
+#+LATEX: \newcommand{\fseighteen}{\fontsize{18pt}{\baselineskip}\selectfont}
+#+LATEX: \newcommand{\fssixteen}{\fontsize{16pt}{\baselineskip}\selectfont}
+#+LATEX: \newcommand{\fsten}{\fontsize{10pt}{\baselineskip}\selectfont}
+#+LATEX: \newcommand{\HRule}{\rule{\linewidth}{1.5mm}}
+#+LATEX: \newcommand{\hRule}{\rule{\linewidth}{1.0mm}}
+#+LATEX: \newpage
+#+LATEX: \cleardoublepage
+#+LATEX: \setcounter{page}{1}
+
+* 数学分析的理论基础
+** 实数及其基本性质
+  #+begin_latex
+  有理数和无理数统称为实数,常用\textbf{R}表示实数集;
+  有理数可用分数形式 $\frac{p}{q}$ (p,q为整数且 $q \neq 0$)表示,
+  也可以用有限十进制小数或无限循环十进制小数表示;而无限不循环
+  十进制小数则称为无理数.
+  #+end_latex
+
+*** 实数的十进制表示
+   #+begin_latex
+   \textbf{规定:}正有限小数(包括正整数) $x$, 当 
+   $x=a_{0}.a_{1}a_{2} \cdots a_{n} \cdots $时,其中
+   $0 \leq a_i \leq 9, i = 0, 1, 2, \cdots, n$, 且$a_n \neq 0$,
+   $a_0$为非负数,记
+   $$ x=a_{0}.a_{1}a_{2}\cdots (a_{n} - 1) 9999 \cdots, $$
+   而当 $x=a_0$为正整数时,则记
+   $$ x=(a_0 - 1).9999\cdots $$
+   #+end_latex
+
+*** 两个实数大小的关系
+   #+begin_latex
+   \textbf{定义一}\verb*" "给定两个非负实数
+   $$x=a_0.a_1 a_2 \cdots a_n \cdots, y=b_0.b_1 b_2 \cdots b_n \cdots$$
+   其中$a_i, b_i (i=0,1,2,\cdots)$为非负整数且
+   $0 \leq a_i \leq 9, 0 \leq b_i \leq 9$,若对任意自然数 $k$, 有
+   $$a_k = b_k, k=0,1,2,\cdots$$
+   则称 $x$ 与 $y$ 相等,记为 $x=y$;若 $a_0 > b_0$ 或存在非负整数 $l$,使得
+   $$a_k = b_k(k=0,1,2,\cdots,l) \verb*" " \& \verb*" " a_{l+1} > b_{l+1}$$
+   则称 $x$ 大于 $y$或 $y$ 小于 $x$.\\
+   \\
+   \textbf{定义二}\verb*" "设 $x=a_0.a_1 a_2 \cdots a_n \cdots$ 为非负实数,
+   称有理数
+   $$ x_n=a_0.a_1 a_2 \cdots a_n $$
+   称为实数 $x$ 的 \textbf{ $n$ 位不足近似},而有理数
+   $$ \overline{x_n} = x_n + \frac{1}{n} $$
+   称为实数 $x$ 的\textbf{ $n$ 位过剩近似}.\\
+   \\
+   \textbf{命题}\verb*" "设
+   $x=a_0.a_1 a_2 \cdots a_n \cdots$ 与 $y=b_0.b_1 b_2 \cdots b_n \cdots$
+   为两个实数,则 $x>y$ 的等价条件是:存在非负整数 $n$,使得
+   $$ x_n > \overline{y_n} $$\\
+   \\
+   \textbf{证明:}\verb*" "两实数 $x, y (x < y)$之间存在有理数 $r$ 满足
+   $$ x < r < y .$$
+   \textbf{证}\verb*" "由于 $x<y$,故存在非负整数 $n$,
+   使得 $\overline{x_n} < y_n $,令
+   $$r = \frac{\overline{x_n} + y_n}{2},$$
+   则 $r$为有理数,且有
+   $$x \leq \overline{x_n} < r < y_n \leq y,$$
+   即得 $x<r<y$.
+   #+end_latex
+
+*** 实数的主要性质
+   #+begin_latex
+   \begin{enumerate}
+   \item 实数集\textbf{R} 对加法,减法,乘法和除法(除数不为0)四则运算
+   是封闭的,即任意两个实数的四则运算结果还是实数.
+   \item 实数集\textbf{R} 是有序的,即任意两个实数 $x$ 和 $y$ 必满足
+   下面三个关系之一: $x<y, x=y, x>y$.
+   \item 实数的大小关系具有传递性,即若 $a>b,b>c$,则有 $a>c$.
+   \item 实数具有阿基米德性,即任何 $a,b \in \textbf{R}$,若 $b>a>0$,
+   则存在正整数 $n$, 使得 $na > b$.
+   \item 实数集\textbf{R} 具有稠密性,即任何两个不相等的实数之间必有
+   另一个实数,且既有有理数,也有无理数.
+   \item 实数集\textbf{R} 与数轴上的点有着一一对应的关系.
+   \end{enumerate}
+   #+end_latex
+** 数集-确界原理
+*** 区间与邻域
+    # 区间
+    #+begin_latex
+
+    设 $a,b \in \textbf{R}$, 且 $a<b$,我们称数集 $\{x|a<x<b\}$ 为开区间,
+    记为 $(a,b)$;数集 $\{x|a \leq x \leq b\}$ 为闭区间,记为 $[a,b]$;
+    数集 $\{x|a \leq x<b\}$ 和 $\{x|a<x \leq b\}$ 为半开半闭区间,分别记为
+    $[a,b)$ 和 $(a,b]$.\\
+    \\
+    \indent
+    满足关系式 $x \geq a$ 的全体实数 $x$的集合记作 $[a,+\infty)$,符号
+    $\infty$ 读作"无穷大". $+\infty$ 读作"正无穷大".类似地,\\
+    \indent
+    $(-\infty,a] =\{x|x\leq a\}, (a,+\infty)=\{x|x>a\}$, \\
+    \indent
+    $(-\infty,a) =\{x|x<a\}, (-\infty,+\infty)=\{x|-\infty < x < +\infty\}$,
+    以上几类都称为无限区间.有限区间和无限区间统称为区间.\\
+    #+end_latex
+    
+    # 邻域
+    #+begin_latex
+
+    设 $a \in \textbf{R}, \delta > 0$, 满足绝对值不等式 $|x-a| < \delta$
+    的全体实数 $x$ 的集合称为点 $a$ 的 \textbf{$\delta$ 邻域} ,记作 
+    $U(a;\delta)$,或简单地记为 $U(a)$,即有
+    $$U(a;\delta) = \{x||x-a|<\delta\} = (a-\delta, a+\delta)$$
+    点 $a$ 的 \textbf{空心邻域} 定义为
+    $$U^{\circ}(a;\delta) = \{x|0<|x-a|<\delta\},$$
+    它也可以简单地记为 $U^{\circ}(a)$.注意, $U^{\circ}(a;\delta)$ 与
+    $U(a;\delta)$ 的区别在于 $U^{\circ}(a;\delta)$ 不包含点 $a$.\\
+    \\
+
+    \indent
+    此外,还常用到以下几种邻域:\\
+    \indent
+    点$a$的 $\delta$ 右邻域
+    $U_{+} (a;\delta) = [a, a + \delta )$, 简记为$U_{+}(a)$.\\
+    \indent
+    点$a$的$\delta$ 左邻域
+    $U_{-}(a;\delta) = (a-\delta, a]$, 简记为 $U_-(a)$.\\
+    ($U_+(a)$ 和 $U_-(a)$ 去除点 $a$ 后,分别为点 $a$ 的 空心$\delta$
+    右,左邻域, 简记为 $U^{\circ}_+(a)$和$U^{\circ}_-(a)$.)\\
+    \\
+    \indent
+    $\infty$
+    邻域 $U(\infty) = \{x||x| > M\}$,其中$M$为充分大的正数(下同).
+    \\
+    \indent
+    $+\infty$ 邻域 $U(+\infty) = \{x|x>M\}$;
+    $-\infty$ 邻域 $U(-\infty) = \{x|x<-M\}$;
+    
+    #+end_latex
+
+    
+*** 有界集-确界原理
+    #+begin_latex
+    \textbf{定义三}\verb*" "设$S$为$\textbf{R}$中的一个数集.
+    若存在数$M(L)$,使得一切 $x\in S$,都有$x\leq M(x\geq L)$,
+    则称S为\textbf{有上界(下界)}的数集,数$M(L)$称为$S$的一个上界(下界).\\
+    \\
+    \indent
+    若数集$S$既有上界又有下界,则称$S$为 \textbf{有界集},若$S$不是有界集,
+    则称$S$为\textbf{无界集}.\\
+    \\
+    \indent
+    \textbf{定义四}\verb*" "设$S$为$\textbf{R}$中的一个数集.若数$\eta$满足:\\
+    \indent
+    (1)对一切$x\in S$,有 $x\leq \eta$,即$\eta$是$S$的上界;\\
+    \indent
+    (2)对任何$a\leq \eta$,存在$x_0 \in S$,使得 $x_0 > a$,即$\eta$又是$S$的最小
+    上界,则称数$\eta$为数集$S$的\textbf{上确界},记作
+    $$\eta = sup\verb*" " S $$\\
+    \\
+    \indent
+    \textbf{定义五}\verb*" "设$S$为$\textbf{R}$中的一个数集.若数$\xi$满足:\\
+    \indent
+    (1)对一切$x\in S$,有 $x\geq \xi$,即$\xi$是$S$的下界;\\
+    \indent
+    (2)对任何$a\geq \xi$,存在$x_0 \in S$,使得 $x_0 < a$,即$\xi$又是$S$的最大
+    下界,则称数$\xi$为数集$S$的\textbf{下确界},记作
+    $$\xi = inf\verb*" "S$$\\
+    \indent
+    上确界和下确界统称为确界.\\
+    \\
+    \indent
+    \textbf{定理1(确界原理)}\verb*" "设$S$为非空数集,若数$S$有上界,则$S$必有上
+    确界;若$S$有下界,则$S$必有下确界.\\
+    \indent
+    
+    #+end_latex
